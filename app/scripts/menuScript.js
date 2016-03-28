@@ -6,6 +6,9 @@
 var app = angular
     .module('confusionApp', [])
     .controller('menuController', function ($scope) {
+        $scope.tab = 1;
+        $scope.filtText = '';
+
         var dishes = [
             {
                 name: 'Uthapizza',
@@ -44,6 +47,25 @@ var app = angular
                 comment: ''
             }
         ];
-
         $scope.dishes = dishes;
+
+        $scope.select = function(setTab) {
+            $scope.tab = setTab;
+
+            if (setTab === 2) {
+                $scope.filtText = 'appetizer';
+            } else if(setTab === 3) {
+                $scope.filtText = 'mains';
+            } else if(setTab === 4) {
+                $scope.filtText = 'dessert';
+            } else {
+                $scope.filtText = '';
+            }
+        }
+
+        $scope.isSelected = function(checkTab) {
+            return ($scope.tab === checkTab);
+        }
+
+
     });
