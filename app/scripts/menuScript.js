@@ -1,11 +1,6 @@
-/**
- * Created by Aragaki on 3/23/2016.
- */
-
-
-var app = angular
-    .module('confusionApp', [])
-    .controller('menuController', function ($scope) {
+'use strict';
+angular.module('confusionApp', [])
+    .controller('menuController', ["$scope", function ($scope) {
         $scope.tab = 1;
         $scope.filtText = '';
 
@@ -45,27 +40,36 @@ var app = angular
                 price: '2.99',
                 description: 'A delectable, semi-sweet New York Style Cheese Cake, with Graham cracker crust and spiced with Indian cardamoms',
                 comment: ''
+            } ,
+            {
+                name: 'ElaiCheese Cake Test',
+                image: 'images/elaicheesecake.png',
+                category: 'dessert',
+                label: '',
+                price: '2.99',
+                description: 'A delectable, semi-sweet New York Style Cheese Cake, with Graham cracker crust and spiced with Indian cardamoms',
+                comment: ''
             }
         ];
         $scope.dishes = dishes;
 
-        $scope.select = function(setTab) {
+        $scope.select = function (setTab) {
             $scope.tab = setTab;
 
             if (setTab === 2) {
                 $scope.filtText = 'appetizer';
-            } else if(setTab === 3) {
+            } else if (setTab === 3) {
                 $scope.filtText = 'mains';
-            } else if(setTab === 4) {
+            } else if (setTab === 4) {
                 $scope.filtText = 'dessert';
             } else {
                 $scope.filtText = '';
             }
-        }
+        };
 
-        $scope.isSelected = function(checkTab) {
+        $scope.isSelected = function (checkTab) {
             return ($scope.tab === checkTab);
-        }
+        };
 
 
-    });
+    }]);
