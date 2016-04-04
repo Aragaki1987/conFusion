@@ -1,0 +1,21 @@
+span {
+    height: 50px;
+    width: 75px;
+    background: #00f343;
+    display: inline-block;
+    float: right;
+}
+
+div {
+    height: 100px;
+    width: 100px;
+    background: #FFf343;
+    display: inline-block;
+    float: left;
+    overflow: scroll;
+}
+
+p {
+    clear: both;
+}
+
