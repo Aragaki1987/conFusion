@@ -9,11 +9,14 @@
          content must come *after* these tags -->
     <title>Ristorante Con Fusion: Menu</title>
     <!-- Bootstrap -->
+    <!-- build:css styles/main.css-->
     <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="../bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
     <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="styles/bootstrap-social.css" rel="stylesheet">
     <link href="styles/mystyles.css" rel="stylesheet">
+    <!-- endbuild -->
+
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -46,6 +49,9 @@
                 </li>
             </ul>
             <div class="tab-content">
+                <button ng-click="toggleDetails()" class="btn btn-xs btn-primary pull-right"                    type="button">
+                    {{showDetails ? 'Hide Details':'Show Details'}}
+                </button>
                 <ul class="media-list tab-pane fade in active">
                     <li class="media" ng-repeat="dish in dishes | filter:filtText">
                         <div class="media-left media-middle">
@@ -59,7 +65,7 @@
                                 <span class="label label-danger">{{dish.label}}</span>
                                 <span class="badge">{{dish.price | currency}}</span>
                             </h2>
-                            <p>{{dish.description}}</p>
+                            <p ng-show="showDetails">{{dish.description}}</p>
                         </div>
                     </li>
                 </ul>
@@ -67,8 +73,10 @@
         </div>
     </div>
 </div>
+<!-- build:js scripts/main.js-->
 <script src="../bower_components/angular/angular.min.js"></script>
 <script src="scripts/menuScript.js"></script>
+<!-- endbuild -->
 </body>
 
 </html>
